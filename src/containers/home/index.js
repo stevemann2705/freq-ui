@@ -3,6 +3,7 @@ import CurrentBalanceUI from "../../layouts/home/currentBalance";
 import TotalProfitUI from "../../layouts/home/totalProfit";
 import WonLostUI from "../../layouts/home/wonLostTrades";
 import BestPairUI from "../../layouts/home/bestPair";
+import LastTradeUI from "../../layouts/home/lastTradeTime";
 import HeaderMenu from "../../components/header";
 import api from "../../helpers/api";
 import {Grid} from "semantic-ui-react";
@@ -12,6 +13,7 @@ const HomeContainer = () => {
     const [totalProfit, setTotalProfit] = useState(0);
     const [wonLost, setWonLost] = useState("");
     const [bestPairData, setBestPairData] = useState("");
+    const [lastTrade, setLastTrade] = useState("");
     useEffect(() => {
         api.balance().then((res) => {
             setBalance(res.data.total);
@@ -21,6 +23,7 @@ const HomeContainer = () => {
             console.log("WON/LOST", res.data["winning_trades"] + "/" + res.data["losing_trades"]);
             setWonLost(res.data["winning_trades"] + "/" + res.data["losing_trades"])
             setBestPairData({bestPair: res.data["best_pair"] , bestPairPercent: res.data["best_rate"]});
+            setLastTrade(res.data["latest_trade_date"]);
         });
     }, []);
     return (
@@ -43,7 +46,7 @@ const HomeContainer = () => {
                         {bestPairData && <BestPairUI state = {bestPairData}/>}
                     </Grid.Column>
                     <Grid.Column>
-                        {totalProfit && <TotalProfitUI state={totalProfit}/>}
+                        {lastTrade && <LastTradeUI state={lastTrade}/>}
                     </Grid.Column>
                     <Grid.Column>
                         {wonLost && <WonLostUI state={wonLost}/>}
