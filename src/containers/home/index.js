@@ -33,7 +33,7 @@ const HomeContainer = () => {
         <>
             <HeaderMenu/>
             <Grid centered>
-                <Grid.Row centered columns={5}>
+                <Grid.Row columns={5}>
                     <Grid.Column>
                         {balance && <CurrentBalanceUI state={balance}/>}
                     </Grid.Column>
@@ -44,7 +44,7 @@ const HomeContainer = () => {
                         {wonLost && <WonLostUI state={wonLost}/>}
                     </Grid.Column>
                 </Grid.Row>
-                <Grid.Row centered columns={5}>
+                <Grid.Row columns={5}>
                     <Grid.Column>
                         {bestPairData && <BestPairUI state = {bestPairData}/>}
                     </Grid.Column>
