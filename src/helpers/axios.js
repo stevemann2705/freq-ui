@@ -32,6 +32,10 @@ export default function createAxios(options = {}) {
             ) {
                 originalRequest._retry = true;
                 localStorage.removeItem("access_token");
+                if (originalRequest.url === "/token/refresh") {
+                    localStorage.removeItem("refresh_token");
+                    window.location = "/auth/login";
+                }
                 const options = {
                     headers: {"Authorization": `Bearer ${refreshToken}`}
                 };
