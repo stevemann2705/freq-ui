@@ -1,16 +1,18 @@
-import React from 'react';
-import HeaderMenu from "../../components/header";
-import {Button} from "semantic-ui-react";
-import api from "../../helpers/api";
+import React, {useEffect, useState} from 'react';
+import HomeUI from "../../layouts/home";
+import getBalance from "../home/useForm";
 
 const HomeContainer = () => {
+    const [balance, setBalance] = useState(0);
+    useEffect(() => {
+        getBalance().then((res) => {
+            setBalance(res.data.total);
+        });
+    }, []);
     return (
-        <div>
-            <HeaderMenu />
-            <Button onClick={() => api.balance()} centered>
-                Ping
-            </Button>
-        </div>
+        <>
+            {balance && <HomeUI state={balance}/>}
+        </>
     );
 };
 
