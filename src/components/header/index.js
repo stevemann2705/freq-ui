@@ -8,7 +8,7 @@ const HeaderMenu = () => {
         <Menu secondary pointing>
             <Menu.Item as={Link} to="/" style={ { fontSize: 20} }>Freqtrade UI v0.0.1</Menu.Item>
             <Menu.Item position="right">
-                {!(pathname === "/auth/login") && localStorage.getItem("loggedIn") === "false" && <Button as={Link} to="/auth/login" animated color='blue'>
+                {!(pathname === "/auth/login") && !localStorage.getItem("access_token") && <Button as={Link} to="/auth/login" animated color='blue'>
                     <Button.Content visible>Log in</Button.Content>
                     <Button.Content hidden>
                         <Icon name='sign in'/>
@@ -16,8 +16,7 @@ const HeaderMenu = () => {
                 </Button>}
             </Menu.Item>
             <Menu.Item>
-                {localStorage.getItem("loggedIn") === "true" && <Button onClick={() => {
-                    localStorage.setItem("loggedIn", "false");
+                {localStorage.getItem("access_token") && <Button onClick={() => {
                     localStorage.removeItem("access_token");
                     localStorage.removeItem("refresh_token");
                 }} as={Link} to="/" animated color='red'>

@@ -24,11 +24,9 @@ const useForm = () => {
             .then((res) => {
                 localStorage.setItem("access_token", res.data["access_token"]);
                 localStorage.setItem("refresh_token", res.data["refresh_token"]);
-                localStorage.setItem("loggedIn", "true");
                 history.push("/");
             })
             .catch((err) => {
-                localStorage.setItem("loggedIn", "false");
                 console.log("err", err);
             });
     };
