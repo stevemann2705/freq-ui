@@ -9,6 +9,9 @@ const api = {
     },
     balance: () => {
         return createAxios().get("/balance");
+    },
+    profit: () => {
+        return createAxios().get("/profit")
     }
 };
 export default api;
