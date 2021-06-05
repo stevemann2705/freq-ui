@@ -18,12 +18,10 @@ export default function createAxios(options = {}) {
     });
     axiosInstance.interceptors.response.use(
         (response) => {
-            console.log("interceptors response", response);
             return response;
         },
         function (error) {
             const originalRequest = error.config;
-            console.log("originalRequest", originalRequest);
             let refreshToken = localStorage.getItem("refresh_token");
             if (
                 refreshToken &&

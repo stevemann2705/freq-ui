@@ -6,7 +6,6 @@ export const GlobalContext = createContext({});
 
 export const GlobalProvider = ({ children }) => {
     const [authState, authDispatch] = useReducer(auth, authInitialState);
-    console.log("authState", authDispatch)
 
     return (
         <GlobalContext.Provider
