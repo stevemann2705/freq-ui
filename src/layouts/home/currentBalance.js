@@ -1,4 +1,3 @@
-import HeaderMenu from "../../components/header";
 import {Header, Segment} from "semantic-ui-react";
 import React from "react";
 import {quantityFormat} from "../../utils/quantityFormat";
