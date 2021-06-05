@@ -1,5 +1,5 @@
-import createAxois from "../../../helpers/axios";
+import createAxios from "../../../helpers/axios";
 
 export const login = () => {
-    return createAxois.post("/token/login")
+    return createAxios.post("/token/login")
 };

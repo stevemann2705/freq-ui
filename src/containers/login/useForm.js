@@ -1,10 +1,9 @@
 import {useState} from "react";
 import { useHistory } from "react-router-dom";
-import createAxois from "../../helpers/axios";
+import api from "../../helpers/api";
 
 const useForm = () => {
     const history = useHistory();
-    console.log(history)
 
     const [form, setForm] = useState({});
     const onChange = (e, {name, value}) => {
@@ -21,7 +20,7 @@ const useForm = () => {
         const options = {
             headers: {"Authorization": `Basic ${token}`}
         };
-        createAxois(options).post("/token/login")
+        api.login(options)
             .then((res) => {
                 localStorage.setItem("access_token", res.data["access_token"]);
                 localStorage.setItem("refresh_token", res.data["refresh_token"]);
