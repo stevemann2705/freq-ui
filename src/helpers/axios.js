@@ -47,6 +47,8 @@ export default function createAxios(options = {}) {
                             return axios(originalRequest);
                         }
                     });
+            } else {
+                window.location = "/auth/login";
             }
             return Promise.reject(error);
         }
