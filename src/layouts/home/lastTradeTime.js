@@ -6,7 +6,7 @@ const square = {width: 200, height: 200}
 const LastTradeTimeUI = (props) => {
     console.log("props", props);
     return (
-        <div style={{paddingTop: '10px', paddingLeft: '30px', paddingRight: '30px'}}>
+        <div style={{paddingTop: '10px'}}>
             <Segment circular style={square}>
                 <Header as='h2'>
                     Last Trade

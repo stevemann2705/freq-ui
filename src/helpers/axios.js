@@ -18,6 +18,7 @@ export default function createAxios(options = {}) {
     });
     axiosInstance.interceptors.response.use(
         (response) => {
+            console.log("axios interceptor response", response);
             return response;
         },
         function (error) {

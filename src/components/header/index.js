@@ -19,7 +19,7 @@ const HeaderMenu = () => {
                 {localStorage.getItem("access_token") && <Button onClick={() => {
                     localStorage.removeItem("access_token");
                     localStorage.removeItem("refresh_token");
-                }} as={Link} to="/" animated color='red'>
+                }} as={Link} to="/auth/login" animated color='red'>
                     <Button.Content visible>Log Out</Button.Content>
                     <Button.Content hidden>
                         <Icon name='sign out'/>

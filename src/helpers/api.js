@@ -12,6 +12,13 @@ const api = {
     },
     profit: () => {
         return createAxios().get("/profit")
+    },
+    daily: (days) => {
+        if (days) {
+            return createAxios().get("/daily?timescale=" + days);
+        } else {
+            return createAxios().get("/daily");
+        }
     }
 };
 export default api;

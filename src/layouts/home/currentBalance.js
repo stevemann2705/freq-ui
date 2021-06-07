@@ -9,11 +9,12 @@ const initialAmount = process.env.REACT_APP_INITIAL_AMOUNT;
 const CurrentBalanceUI = (props) => {
     const currentBalance = quantityFormat(props?.state);
     return (
-        <div style={{paddingTop: '10px', paddingLeft: '30px'}}>
+        <div style={{paddingTop: '10px'}}>
             <Segment circular style={square}>
                 <Header as='h2' color={getColor(props?.state, initialAmount)}>
                     Current Balance
-                    <Header.Subheader color={getColor(currentBalance, initialAmount)}>{"$" + currentBalance + "/$" + initialAmount}</Header.Subheader>
+                    <Header.Subheader
+                        color={getColor(currentBalance, initialAmount)}>{"$" + currentBalance + "/$" + initialAmount}</Header.Subheader>
                 </Header>
             </Segment>
         </div>
