@@ -6,7 +6,7 @@ const square = {width: 200, height: 200}
 const OpenTotalUI = (props) => {
     return (
         <div style={{paddingTop: '10px'}}>
-            <Segment circular style={square}>
+            <Segment circular style={square} loading={props?.state == null}>
                 <Header as='h2'>
                     Open/Total
                     <Header.Subheader>{props?.state}</Header.Subheader>

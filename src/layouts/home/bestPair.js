@@ -7,7 +7,7 @@ const BestPairUI = (props) => {
     console.log("props", props);
     return (
         <div style={{paddingTop: '10px'}}>
-            <Segment circular style={square}>
+            <Segment circular style={square} loading={props?.state.bestPair == null || props?.state.bestPairPercent == null}>
                 <Header as='h2'>
                     Best Pair
                     <Header.Subheader>{props?.state.bestPair}</Header.Subheader>

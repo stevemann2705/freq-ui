@@ -11,13 +11,13 @@ import api from "../../helpers/api";
 import {Grid, Input} from "semantic-ui-react";
 
 const HomeContainer = () => {
-    const [balance, setBalance] = useState(0);
-    const [totalProfit, setTotalProfit] = useState(0);
-    const [wonLost, setWonLost] = useState("");
-    const [bestPairData, setBestPairData] = useState("");
-    const [lastTrade, setLastTrade] = useState("");
-    const [openTotal, setOpenTotal] = useState("");
-    const [daily, setDaily] = useState([]);
+    const [balance, setBalance] = useState(null);
+    const [totalProfit, setTotalProfit] = useState(null);
+    const [wonLost, setWonLost] = useState(null);
+    const [bestPairData, setBestPairData] = useState({bestPair: null, bestPairPercent: null});
+    const [lastTrade, setLastTrade] = useState(null);
+    const [openTotal, setOpenTotal] = useState(null);
+    const [daily, setDaily] = useState(null);
     const [days, setDays] = useState(7);
     useEffect(() => {
         api.balance().then((res) => {
@@ -47,24 +47,24 @@ const HomeContainer = () => {
             <Grid stackable>
                 <Grid.Row columns={3}>
                     <Grid.Column placeholder={"text"} className={"centered-flexed"}>
-                        {balance && <CurrentBalanceUI state={balance}/>}
+                        {<CurrentBalanceUI state={balance}/>}
                     </Grid.Column>
                     <Grid.Column placeholder={"text"} className={"centered-flexed"}>
-                        {totalProfit && <TotalProfitUI state={totalProfit}/>}
+                        {<TotalProfitUI state={totalProfit}/>}
                     </Grid.Column>
                     <Grid.Column placeholder={"text"} className={"centered-flexed"}>
-                        {wonLost && <WonLostUI state={wonLost}/>}
+                        {<WonLostUI state={wonLost}/>}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row columns={3}>
                     <Grid.Column className={"centered-flexed"}>
-                        {bestPairData && <BestPairUI state={bestPairData}/>}
+                        {<BestPairUI state={bestPairData}/>}
                     </Grid.Column>
                     <Grid.Column className={"centered-flexed"}>
-                        {lastTrade && <LastTradeUI state={lastTrade}/>}
+                        {<LastTradeUI state={lastTrade}/>}
                     </Grid.Column>
                     <Grid.Column className={"centered-flexed"}>
-                        {openTotal && <OpenTotalUI state={openTotal}/>}
+                        {<OpenTotalUI state={openTotal}/>}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>

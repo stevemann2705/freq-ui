@@ -10,7 +10,7 @@ const CurrentBalanceUI = (props) => {
     const currentBalance = quantityFormat(props?.state);
     return (
         <div style={{paddingTop: '10px'}}>
-            <Segment circular style={square}>
+            <Segment circular style={square} loading={props?.state == null}>
                 <Header as='h2' color={getColor(props?.state, initialAmount)}>
                     Current Balance
                     <Header.Subheader

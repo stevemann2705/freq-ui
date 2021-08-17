@@ -7,7 +7,7 @@ const LastTradeTimeUI = (props) => {
     console.log("props", props);
     return (
         <div style={{paddingTop: '10px'}}>
-            <Segment circular style={square}>
+            <Segment circular style={square} loading={props?.state == null}>
                 <Header as='h2'>
                     Last Trade
                     <Header.Subheader>{props?.state}</Header.Subheader>

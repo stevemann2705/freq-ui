@@ -9,7 +9,7 @@ const CurrentBalanceUI = (props) => {
     const totalProfit = quantityFormat(props?.state);
     return (
         <div style={{paddingTop: '10px'}}>
-            <Segment circular style={square}>
+            <Segment circular style={square} loading={props?.state == null}>
                 <Header as='h2' color={getColor(totalProfit, 0)}>
                     Total Profit
                     <Header.Subheader>{"$" + totalProfit}</Header.Subheader>
